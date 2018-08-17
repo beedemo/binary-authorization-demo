@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: petclinic-deploy
+spec:
+  replicas: 1
+  progressDeadlineSeconds: 45
+  template:
+    metadata:
+      labels:
+        app: petclinic
+    spec:
+      containers:
+        - name: petclinic
+          image: REPLACEME
+          ports:
+            - containerPort: 8080

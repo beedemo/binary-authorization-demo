@@ -1,0 +1,60 @@
+
+
+###################
+# Mandatory Changes
+###################
+# These settings must be changed to work in your environment
+# GCP Projects - All three projects may be the same project.
+# The project where your Jenknis Agent will run
+CLOUDBEES_PROJECT_ID=<GCP Project running CloudBees Core or Jenkins>
+# The GCP Project where you will deploy the Petclinic application
+DEPLOYER_PROJECT_ID=<GCP Project where you will deploy Petclinic>
+# The GCP Project where you will store your Binary Authorization attestations and policies
+ATTESTOR_PROJECT_ID=<GCP Project where you will store attestations>
+
+# GKE settings
+# The GKE cluster where your Jenkins Agent will run
+CLOUDBEES_CLUSTER=<GKE Cluster running CloudBees Core or Jenkins>
+# The GKE cluster namespace where your Jenkins Agent will run
+CLOUDBEES_NAMESPACE=<Namespace on Cluster running CloudBees Core or Jenkins>
+# The GCP Zone where GKE cluster for CloudBees Jenkins Agents run
+CLOUDBEES_CLUSTER_ZONE=<GCP zone running CloudBees Core or Jenkins>
+
+# The GKE Cluster where you will deploy the Petclinic application for development
+DEPLOYER_DEV_CLUSTER_NAME=<GKE Cluster for Dev work on Petclinic>
+# The GCP zone for the GKE cluster where you will deploy the Petclinic application for development
+DEPLOYER_DEV_CLUSTER_ZONE=<GCP Zone for Dev Cluster>
+
+# The GKE Cluster where you will deploy the Petclinic application for production
+DEPLOYER_PROD_CLUSTER_NAME=<GKE Prod Cluster>
+# The GCP zone for the GKE cluster where you will deploy the Petclinic application for production
+DEPLOYER_PROD_CLUSTER_ZONE=<GCP Prod Zone>
+
+
+###################
+# Optional Changes
+###################
+# These parameters can optionally be changed.
+
+# The name of the container analysis notes to be created. 
+# One note for attestations that the image is built 
+# One note for attestations that there is a git tag to go to production
+BUILD_ATTESTOR_NOTE_ID="build-attest-note"
+TAG_ATTESTOR_NOTE_ID="tag-attest-note"
+
+# The Attestors for this Demo
+# The name of the build attestor
+BUILD_ATTESTOR_NAME="Build Attestor"
+# The email of the build attestor
+BUILD_ATTESTOR_EMAIL="buildattestor@example.com"
+# The id of the build attestor
+BUILD_ATTESTOR_ID="build-attestor"
+# The name of the build attestor
+TAG_ATTESTOR_NAME="Tag Attestor"
+# The email of the tag attestor
+TAG_ATTESTOR_EMAIL="tagattestor@example.com"
+# The id of the tag attestor
+TAG_ATTESTOR_ID="tag-attestor"
+
+# The Production Namespace to use for Tag Releases on Deployer Cluster. Default is "production"
+DEPLOYER_PRODUCTION_NAMESPACE="production"

@@ -1,0 +1,43 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kaniko-build-pod
+spec:
+  containers:
+  - name: maven
+    image: maven:3.5.0
+    command:
+    - cat
+    tty: true
+  - name: gcloud
+    image: docker.io/beedemo/gcloud:gpg
+    command:
+    - cat
+    tty: true
+    volumeMounts:
+      - name: cloudbees-secret
+        mountPath: /secret
+      - name: build-attestor-secret
+        mountPath: /buildsecret
+      - name: tag-attestor-secret
+        mountPath: /tagsecret
+  - name: kaniko
+    image: gcr.io/kaniko-project/executor:debug
+    imagePullPolicy: Always
+    command:
+    - /busybox/cat
+    tty: true
+    volumeMounts:
+      - name: cloudbees-secret
+        mountPath: /secret
+  restartPolicy: Never
+  volumes:
+    - name: cloudbees-secret
+      secret:
+        secretName: cloudbees-secret
+    - name: build-attestor-secret
+      secret:
+        secretName: build-attestor-secret
+    - name: tag-attestor-secret
+      secret:
+        secretName: tag-attestor-secret
