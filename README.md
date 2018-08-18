@@ -47,6 +47,6 @@ The setup.sh script runs multiple scripts to set up a particular part of the dem
   * [jenkinsfile-setup](./setup/jenkinsfile-setup.sh)
   * [cleanup](./setup/cleanup.sh)
 
-###Watch Video Walkthrough
+### Watch Video Walkthrough
 
 [![Video Walkthrough](http://img.youtube.com/vi/iHz1VBw_oZs/0.jpg)](https://www.youtube.com/watch?v=iHz1VBw_oZs)
